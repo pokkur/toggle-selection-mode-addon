@@ -12,7 +12,10 @@ jobs:
 
       - name: Zip addon
         run: |
-          zip -r addon.zip ./__init__.py
+          mkdir toggle-selection-mode-addon
+          cp __init__.py ./__init__.py
+          cp LICENSE ./LICENSE
+          zip -r addon.zip toggle-selection-mode-addon
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
