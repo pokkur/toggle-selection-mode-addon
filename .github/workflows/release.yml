@@ -12,8 +12,7 @@ jobs:
 
       - name: Zip addon
         run: |
-          zip -r addon.zip . -i *__init__.py
-
+          zip -r addon.zip ./toggle-selection-mode-addon/__init__.py
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -32,5 +31,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: addon.zip
-          asset_name: toggle-selection-mode-addon-v${{ env.VERSION }}.zip
+          asset_name: toggle-selection-mode-addon.zip
           asset_content_type: application/zip
